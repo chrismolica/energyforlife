@@ -2,8 +2,8 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    meetupsController = require('../server/controllers/meeetups-controllers'),
-    emailController = require('../server/controllers/emailsubscription-controller');
+    meetupsController = require(__dirname +'/server/controllers/meeetups-controllers'),
+    emailController = require(__dirname+'/server/controllers/emailsubscription-controller');
 
 mongoose.connect('mongodb://localhost:27017/energy4life');
 
