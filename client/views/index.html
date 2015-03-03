@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html ng-app="profile">
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Energy For Life</title>
+
+    <!--<link rel="shortcut icon" href="img/favicon.png">-->
+
+    <meta name="description" content="">
+
+    <!-- CSS -->
+    <link href="css/preload.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/yamm.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-switch.min.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link href="css/animate.min.css" rel="stylesheet" media="screen">
+    <link href="css/slidebars.css" rel="stylesheet" media="screen">
+    <link href="css/lightbox.css" rel="stylesheet" media="screen">
+    <!--<link href="css/jquery.bxslider.css" rel="stylesheet">-->
+    <!--<link href="css/syntaxhighlighter/shCore.css" rel="stylesheet" media="screen">-->
+
+    <link href="css/style-green.css" rel="stylesheet" media="screen" title="default">
+    <link href="css/width-full.css" rel="stylesheet" media="screen" title="default">
+
+    <link href="css/buttons.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+<div id="sb-site">
+    <div class="boxed">
+        <div class="email-header" ng-controller="EmailHeaderController as email" ng-hide="state || scrollState" id="email-header">
+            <div class="subscribe" ng-hide="subscribed">
+                <div class="col-lg-1 col-md-1 hidden-sm hidden-xs email-header-close">
+                    <a ng-click="email.toggleState(true)" href="#"><i class="fa fa-times-circle-o"></i></a>
+                </div>
+                <div class="subscribe-message">
+                    <div class="col-md-7 hidden-sm hidden-xs email-message-md">
+                        <p>
+                            By joining our e-mail list, you’ll learn about the work done through Energy For Life.  We’ll send you info on how you can help improve Haitian Medical Clincs.
+                        </p>
+                    </div>
+                    <div class="col-md-12 hidden-lg hidden-md email-message-sm">
+                        <p>
+                            Help Supply Solar. Join Our E-Mail List
+                        </p>
+                    </div>
+                </div>
+                <div class="hidden-lg hidden-md col-sm-1 col-xs-1 email-header-close">
+                    <a ng-click="email.toggleState(true)" href="#"><i class="fa fa-times-circle-o"></i></a>
+                </div>
+                <div class="col-md-4 col-sm-9 col-xs-10 email-form-holder">
+                    <form role="form" name="emailForm" ng-controller="SignUpController as signup" id="email-form" class="form-inline css-form"
+                          ng-submit="email.addEmail(signup) && emailForm.$valid" novalidate>
+                        <input ng-model="signup.input.email" type="email" placeholder="Your email address..." class="email-header-form" id="InputEmail">
+                        <button type="submit" class="btn btn-ar btn-primary">JOIN</button>
+                    </form>
+                </div>
+            </div>
+            <div class="subscribe-thankyou" ng-show="subscribed">
+                <p>
+                    Thank you for you subscription.
+                </p>
+            </div>
+
+        </div>
+        <nav class="navbar navbar-fixed-top navbar-default navbar-header-full expand push-down shadow" ng-controller="HeaderController as header_ctr" role="navigation" id="header">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" ng-click='header_ctr.toggle(toggle_state)' class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand hidden-lg hidden-md hidden-sm" href="#"><img src="img/logo_xs.svg"></a>
+            </div> <!-- navbar-header -->
+            <a class="navbar-brand-center hidden-sm hidden-xs scroll-top" href="#"> <img src="img/WhiteYellowLogo.svg" href="index.html"></a>
+            <a class="navbar-brand-center hidden-lg hidden-md hidden-xs scroll-top" href="#"> <img src="img/WhiteYellowLogo.svg" href="index.html"></a>
+            <a class="navbar-brand-center-shrink hidden-xs scroll-top" href="#"> <img src="img/WhiteYellowLogo.svg" href="index.html"></a>
+            <!--Collect the nav links, forms, and other content for toggling -->
+            <div class="donate hidden-xs">
+                <div class="donate-button">
+                    <a href="#" class="animated fadeIn animation-delay-7">Donate</a>
+                </div>
+            </div>
+            <nav class="top-nav">
+                <ul class="top-nav-social  hidden-sm hidden-xs">
+                    <li><a href="https://www.google.com/" class="animated fadeIn animation-delay-7 twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="animated fadeIn animation-delay-8 facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="animated fadeIn animation-delay-9 google-plus"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="animated fadeIn animation-delay-9 instagram"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </nav>
+            <div class="navbar-collapse-lg hidden-sm hidden-xs">
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="#" class="nav-item  scroll-link" data-id="about">About</a></li>
+                    <li><a href="#" class="nav-item  scroll-link" data-id="events">Events</a></li>
+                    <li><a href="#" class="nav-item  scroll-link" data-id="affilates">Affilates</a></li>
+                    <li><a href="#" class="nav-item  scroll-link" data-id="contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="navbar-collapse hidden-lg hidden-md" ng-show="toggle_state">
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="#" class="nav-item  scroll-link" data-id="about">About</a></li>
+                    <li><a href="#" class="nav-item  scroll-link" data-id="events">Events</a></li>
+                    <li><a href="#" class="nav-item  scroll-link" data-id="affilates">Affilates</a></li>
+                    <li><a href="#" class="nav-item  scroll-link" data-id="contact">Contact Us</a></li>
+                </ul>
+            </div><!-- navbar-collapse -->
+
+        </nav>
+
+        <header id="header-full-plan" class="wrap-primary-plan">
+            <div class="wrap-pointers">
+                <div class="container">
+                    <div id="front-page">
+                        <div class="col-md-6 col-md-push-6 col-sm-6 col-sm-push-6 col-xs-12 front-container">
+                            <h1 class="animated fadeInUp wow col-md-12">Shedding A Light On <span>HAITI</span></h1>
+                            <!--<p class="col-md-12  col-xs-6 hidden-xs">Sensae is a Worcester MA startup focusing on biosensor solutions for improving safety and effectiveness of fitness regimes.-->
+                            <!--By implementing a highly adaptive and scaleable sensor suite, we are able to target each level of fitness enthusiast rather-->
+                            <!--than focus solely on high performance individuals. Sensae is aimed at high quality fitness training for all people.</p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="mission">
+            <div class="mission-box col-md-2 shadow">
+                <h1>OUR MISSION</h1>
+            </div>
+            <div class="mission-box col-md-10 shadow">
+                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+            </div>
+        </div>
+        <div id="about" class="shadow">
+            <div class="container">
+                <section class="margin-bottom">
+                    <div class="row about-contents">
+                        <div class="col-md-12">
+                            <h1>ENERGY FOR LIFE</h1>
+                        </div>
+                        <div class="col-md-6 col-sm-12 about-container">
+                            <h1 class="animated fadeInUp wow col-md-12">A <span>LEAN</span> Startup focused on You</h1>
+                            <p class="col-md-12  col-xs-12">Sensae is a Worcester MA startup focusing on biosensor solutions for improving safety and effectiveness of fitness regimes.
+                                By implementing a highly adaptive and scaleable sensor suite, we are able to target each level of fitness enthusiast rather
+                                than focus solely on high performance individuals. Sensae is aimed at high quality fitness training for all people.</p>
+                        </div>
+
+                    </div> <!-- row -->
+                </section>
+            </div>
+        </div>
+        <div id="about_us">
+            <div class="container">
+                <div ng-controller="MeetupsController as meetups">
+                    <p> Hello!</p>
+                    <h1> There are {{meetups.count}} meetups</h1>
+                    <ul>
+                        <li ng-repeat="meetup in meetuplist">{{meetup.name}}</li>
+                    </ul>
+                    <form ng-submit="meetups.createMeetup()">
+                        <input type="text" placeholder="Meetup name" ng-model="name">
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="email_list">
+            <div class="container">
+                <div ng-controller="EmailListController as emailList">
+                    <ul>
+                        <li ng-repeat="email in emailList">{{email.email}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="container contact-full">
+                <div class="contact-form">
+                    <h1 class="animated fadeInUp wow ">
+                        We want you to come for the ride in the process, subscribe to follow us
+                    </h1>
+                    <div class="contact-box contact-box-default shadow">
+                        <div ng-controller="EmailSubscription as user">
+                            <form name="signupForm" role="form" ng-controller="SignUpController as signup" ng-hide="user.profile.submited" ng-submit="signupForm.$valid && signup.addEmail(user)" novalidate class="css-form">
+                                <fieldset class="form-group">
+                                    <input name="input" ng-model="signup.input.first_name" class="form-control" placeholder="First Name" title="First Name" required>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="input" ng-model="signup.input.last_name" class="form-control" placeholder="Last Name" title="Last Name" required>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input ng-model="signup.input.email" type="email"  class="form-control" placeholder="Email" title="Email" required/>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input type="submit" class="btn btn-primary pull-right" value="Sign Up" />
+                                </fieldset>
+                            </form>
+                            <div class="contact-thankyou" ng-show="user.profile.submited">
+                                <p>Thank you {{user.profile.first_name}} {{user.profile.last_name}} for your interest, we are excited to update you soon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="../js/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/libraries/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/libraries/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="../js/libraries/wow.min.js"></script>
+    <script type="text/javascript" src="../js/libraries/angular.min.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+    <script type="text/javascript" src="../js/controllers/meetups-controller.js"></script>
+    <script type="text/javascript" src="../js/controllers/scroll-controller.js"></script>
+    <script type="text/javascript" src="../js/controllers/header-controller.js"></script>
+    <script type="text/javascript" src="../js/controllers/joinus-controller.js"></script>
+    <script type="text/javascript" src="../js/controllers/emaillist-controller.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+
+</body>
+</html>
