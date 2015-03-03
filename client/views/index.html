@@ -92,7 +92,7 @@
                     <li><a href="#" class="animated fadeIn animation-delay-9 instagram"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </nav>
-            <div class="navbar-collapse-lg hidden-sm hidden-xs">
+            <div class="navbar-collapse-lg hidden-xs">
                 <ul class="nav navbar-nav navbar-center">
                     <li><a href="#" class="nav-item  scroll-link" data-id="about">About</a></li>
                     <li><a href="#" class="nav-item  scroll-link" data-id="events">Events</a></li>
@@ -100,7 +100,7 @@
                     <li><a href="#" class="nav-item  scroll-link" data-id="contact">Contact Us</a></li>
                 </ul>
             </div>
-            <div class="navbar-collapse hidden-lg hidden-md" ng-show="toggle_state">
+            <div class="navbar-collapse hidden-lg hidden-md hidden-sm" ng-show="toggle_state">
                 <ul class="nav navbar-nav navbar-center">
                     <li><a href="#" class="nav-item  scroll-link" data-id="about">About</a></li>
                     <li><a href="#" class="nav-item  scroll-link" data-id="events">Events</a></li>
@@ -125,28 +125,44 @@
                 </div>
             </div>
         </header>
-        <div id="mission">
-            <div class="mission-box col-md-2 shadow">
-                <h1>OUR MISSION</h1>
-            </div>
-            <div class="mission-box col-md-10 shadow">
-                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-            </div>
-        </div>
         <div id="about" class="shadow">
             <div class="container">
                 <section class="margin-bottom">
                     <div class="row about-contents">
                         <div class="col-md-12">
-                            <h1>ENERGY FOR LIFE</h1>
+                            <h1>Shedding A Light On HAITI</h1>
                         </div>
                         <div class="col-md-6 col-sm-12 about-container">
-                            <h1 class="animated fadeInUp wow col-md-12">A <span>LEAN</span> Startup focused on You</h1>
-                            <p class="col-md-12  col-xs-12">Sensae is a Worcester MA startup focusing on biosensor solutions for improving safety and effectiveness of fitness regimes.
-                                By implementing a highly adaptive and scaleable sensor suite, we are able to target each level of fitness enthusiast rather
-                                than focus solely on high performance individuals. Sensae is aimed at high quality fitness training for all people.</p>
-                        </div>
+                            <div class="about-description col-md-12  col-xs-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, neque eget lobortis tempus, lectus massa scelerisque arcu,
+                                    in volutpat justo sem eu neque. Etiam convallis nibh ex, in suscipit velit iaculis id. Integer gravida lacus orci, sed semper orci dapibus nec. Nam nec sem quis
+                                    lectus maximus elementum sed eget ligula. Duis quis nibh interdum, vestibulum lectus ac, semper arcu. Phasellus maximus a tortor sit amet tincidunt.
+                                </p>
 
+                                <p>
+                                    Maecenas placerat
+                                    ipsum felis, eu lobortis dolor pharetra sit amet. Phasellus tempor pulvinar enim et dignissim. Maecenas non euismod turpis. Donec ornare molestie elit ut lacinia.
+                                    In luctus hendrerit sapien, nec tincidunt leo elementum non. Nullam luctus mauris a nulla pulvinar, sed tempus lacus ultrices.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 interactive-map" ng-controller="InteractiveMapController as intmap_ctrl">
+                            <img class="haiti-image" src="img/haiti.svg"/>
+                            <div class="haiti-citi" ng-mouseover="intmap_ctrl.hoverIn()" ng-mouseleave="intmap_ctrl.hoverOut()">
+                                <a href="#"><div class="map-highlight"></div></a>
+                                <div class="bubble" ng-show="intmap_ctrl.hoverstate">IN THE BUBBLE</div>
+                                <div class="location-icon"></div>
+                            </div>
+
+                        </div>
+                        <div id="mission" class="col-md-12">
+                            <div class="mission-box col-md-3">
+                                <h2>OUR MISSION</h2>
+                            </div>
+                            <div class="mission-box col-md-9">
+                                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Phasellus tempor pulvinar enim et dignissim.</h3>
+                            </div>
+                        </div>
                     </div> <!-- row -->
                 </section>
             </div>
@@ -222,6 +238,7 @@
     <script type="text/javascript" src="../js/controllers/header-controller.js"></script>
     <script type="text/javascript" src="../js/controllers/joinus-controller.js"></script>
     <script type="text/javascript" src="../js/controllers/emaillist-controller.js"></script>
+    <script type="text/javascript" src="../js/controllers/aboutus-controller.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
 
 </body>
