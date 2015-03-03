@@ -32,7 +32,9 @@ app.post('/api/emailsubscriptions', emailController.create);
 app.get('/api/meetups', meetupsController.list);
 app.get('/api/emailsubscriptions', emailController.list);
 
-app.listen(2000, function(){
-    console.log('I\'m Listening...');
-});
+app.listen(process.env.PORT || 5000);
+
+//app.listen(2000, function(){
+//    console.log('I\'m Listening...');
+//});
 
