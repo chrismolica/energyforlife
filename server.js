@@ -6,7 +6,7 @@ var express = require('express'),
     emailController = require(__dirname+'/server/controllers/emailsubscription-controller');
 
 //mongoose.connect('mongodb://localhost:27017/energy4life');
-mongoose.connect('process.env.MONGODB_DEVELOPMENT_URI');
+mongoose.connect('mongodb://admin:cmpi95mc@ds027318.mongolab.com:27318/heroku_app34548873');
 
 
 app.use(bodyParser.json());
