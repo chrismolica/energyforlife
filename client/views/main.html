@@ -198,8 +198,8 @@
                         We want you to come for the ride in the process, subscribe to follow us
                     </h1>
                     <div class="contact-box contact-box-default shadow">
-                        <div ng-controller="EmailSubscription as user">
-                            <form name="signupForm" role="form" ng-controller="SignUpController as signup" ng-hide="user.profile.submited" ng-submit="signupForm.$valid && signup.addEmail(user)" novalidate class="css-form">
+                        <div ng-controller="DonationController as user">
+                            <form name="signupForm" role="form" ng-controller="UserSignUpController as signup" ng-hide="user.profile.submited" ng-submit="signupForm.$valid && signup.addEmail(user)" novalidate class="css-form">
                                 <fieldset class="form-group">
                                     <input name="input" ng-model="signup.input.first_name" class="form-control" placeholder="First Name" title="First Name" required>
                                 </fieldset>
@@ -207,15 +207,27 @@
                                     <input name="input" ng-model="signup.input.last_name" class="form-control" placeholder="Last Name" title="Last Name" required>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input ng-model="signup.input.email" type="email"  class="form-control" placeholder="Email" title="Email" required/>
+                                    <input name="input" ng-model="signup.input.amount" class="form-control" placeholder="Enter Amount" title="Amount" required>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input type="submit" class="btn btn-primary pull-right" value="Sign Up" />
+                                    <input name="input" ng-model="signup.input.type" class="form-control" placeholder="Type" title="CreditCard Type" required>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="input" ng-model="signup.input.number" class="form-control" placeholder="Enter Credit Card Number" title="Number" required>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="input" ng-model="signup.input.expire_month" class="form-control" placeholder="Enter Month" title="Number" required>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="input" ng-model="signup.input.expire_year" class="form-control" placeholder="Enter Year" title="Number" required>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="input" ng-model="signup.input.cvv" class="form-control" placeholder="Enter CVV" title="CVV" required>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input type="submit" class="btn btn-primary pull-right" value="Make Donation" />
                                 </fieldset>
                             </form>
-                            <div class="contact-thankyou" ng-show="user.profile.submited">
-                                <p>Thank you {{user.profile.first_name}} {{user.profile.last_name}} for your interest, we are excited to update you soon</p>
-                            </div>
                         </div>
                     </div>
                 </div>

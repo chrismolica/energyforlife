@@ -53,7 +53,7 @@ angular.module('profile').
             $timeout(email.$save(function(result){
                 console.log("OUTPUT RESULT:"+result.email);
                 //pushEmail(result.email);
-            }));
+            }), 3000);
             subscribe_thankyou();
         };
         //function pushEmail(email){

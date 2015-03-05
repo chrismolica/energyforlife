@@ -1,0 +1,12 @@
+//
+   Created by chrismolica on 3/4/15.
+
+block content
+    - var code = "Code: " + error.httpStatusCode;
+    - var description = JSON.stringify(error, null, 2);
+    h1 Error
+    h2= code
+    pre
+        p= description
+    a(href='/')
+        button Back
