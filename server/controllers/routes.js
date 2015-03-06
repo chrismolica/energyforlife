@@ -21,40 +21,6 @@ exports.init = function(c){
     //status = {};
 };
 
-//var config = require("config3");
-//var paypal_api = require("paypal-rest-sdk");
-//paypal_api.configure(config.paypal);
-//var log = require("app/log");
-
-//function pay(creditCard, amount, description, callback) {
-//    var paypalOptions = {
-//        intent: "sale",
-//        payer: {
-//            payment_method: "credit_card",
-//            funding_instruments: [{credit_card: creditCard}]
-//        },
-//        transactions: [{
-//            amount: {
-//                total: amount,
-//                currency: "USD"
-//            },
-//            description: description
-//        }]
-//    };
-//    if (config.paypal.enabled) {
-//        paypal_api.payment.create(paypalOptions, function (error, response) {
-//            log.debug({
-//                err: error,
-//                response: response || (error && error.response)
-//            }, "paypal payment response");
-//            callback(error, response);
-//        });
-//    } else {
-//        setImmediate(function () {
-//            callback(null, {"fakePaypal": "is fake"});
-//        });
-//    }
-//}
 exports.create = function (req, res) {
     console.log("INPUT SERVERSIDE:"+req.body);
     console.log(req.body);
@@ -86,15 +52,6 @@ exports.create = function (req, res) {
                     "first_name": req.body.first_name,
                     "last_name": req.body.last_name
                 }
-                //"credit_card": {
-                //    "number": "5500005555555559",
-                //    "type": "mastercard",
-                //    "expire_month": 12,
-                //    "expire_year": 2018,
-                //    "cvv2": 111,
-                //    "first_name": "Joe",
-                //    "last_name": "Shopper"
-                //}
             }
         ];
         console.log('INPUTED CREDIT CARD INFO:');
@@ -126,49 +83,7 @@ exports.create = function (req, res) {
     });
 };
 
-//exports.create = function(req, res){
-//    var payment = {
-//        "intent": "sale",
-//        "payer": {
-//            "payment_method": "credit_card",
-//            "funding_instruments": [{
-//                "credit_card": {
-//                    "number": "5500005555555559",
-//                    "type": "mastercard",
-//                    "expire_month": 12,
-//                    "expire_year": 2018,
-//                    "cvv2": 111,
-//                    "first_name": "Joe",
-//                    "last_name": "Shopper"
-//                }
-//            }]
-//        },
-//        "transactions": [{
-//            "amount": {
-//                "total": "5.00",
-//                "currency": "USD"
-//            },
-//            "description": "My awesome payment"
-//        }]
-//    };
-//    paypal.payment.create(payment, function (error, payment) {
-//        if (error) {
-//            console.log(error);
-//        } else {
-//            if(payment.payer.payment_method === 'paypal') {
-//                req.session.paymentId = payment.id;
-//                var redirectUrl;
-//                for(var i=0; i < payment.links.length; i++) {
-//                    var link = payment.links[i];
-//                    if (link.method === 'REDIRECT') {
-//                        redirectUrl = link.href;
-//                    }
-//                }
-//                res.redirect(redirectUrl);
-//            }
-//        }
-//    });
-//};
+
 
 exports.execute = function(req, res){
     var paymentId = req.session.paymentId;

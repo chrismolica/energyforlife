@@ -12,6 +12,9 @@ angular.module('profile').
         var Donation = $resource('/api/donation');
 
         this.transaction = {};
+
+
+
         this.attempt = false;
         $scope.result = {};
         $http.put('/create').success(function(data){
