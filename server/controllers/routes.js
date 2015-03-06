@@ -3,7 +3,6 @@
  */
 var paypal = require('paypal-rest-sdk');
 var config = {};
-var status = {};
 /*
  * GET home page.
  */
@@ -12,9 +11,6 @@ exports.index = function(req, res){
     res.render('index', { title: 'Express' });
 };
 
-exports.list = function(req, res){
-    res.json(status);
-};
 /*
  * SDK configuration
  */
@@ -114,16 +110,19 @@ exports.create = function (req, res) {
             console.log(error);
             console.log('ERROR EXPAND');
             console.log(JSON.stringify(error, null, 2));
-            status = error;
-            res.json('DID WE DO IT');
-
+            //res.send('VALIDATION ERROR');
+            //res.json('DID WE DO IT');
+            res.send(error);
             //res.render('error', { 'error': error });
         } else {
             //req.session.paymentId = payment.id;
             //res.render('create', { 'payment': payment });
+            status = payment;
             console.log(payment);
             console.log("SUCCESS:"+payment.id);
+            res.send(payment);
         }
+
     });
 };
 

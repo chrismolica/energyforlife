@@ -54,9 +54,18 @@ app.use('/js', express.static(__dirname + '/client/js'));
 });
 
 
+
+
 app.get('/', function(req, res) {
+    console.log('HOME');
     res.sendFile(__dirname + '/client/views/index.html');
 });
+app.get('/donate', function(req, res) {
+    res.sendFile(__dirname + '/client/views/donate.html');
+});
+app.get('/index', function (req, res) {
+    res.sendFile(__dirname + '/client/views/index.html');
+})
 //PayPal calls
 
 
@@ -74,7 +83,6 @@ app.post('/api/donation', routes.create);
 
 app.get('/api/meetups', meetupsController.list);
 app.get('/api/emailsubscriptions', emailController.list);
-app.get('/api/donation', routes.list);
 
 //APP COOKIE SESSION
 //app.use(logger());
