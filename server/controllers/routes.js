@@ -61,6 +61,7 @@ exports.create = function (req, res) {
     }
 
     paypal.payment.create(payment, function (error, payment) {
+        var status;
         //console.log(output.id);
         if (error) {
             console.log('ERROR');
@@ -69,15 +70,17 @@ exports.create = function (req, res) {
             console.log(JSON.stringify(error, null, 2));
             //res.send('VALIDATION ERROR');
             //res.json('DID WE DO IT');
-            res.send(error);
+
+            status = {'state':'fail','value': error};
+            res.send(status);
             //res.render('error', { 'error': error });
         } else {
             //req.session.paymentId = payment.id;
             //res.render('create', { 'payment': payment });
-            status = payment;
-            console.log(payment);
+            status = {'state':'success','value': payment};
+            console.log(status);
             console.log("SUCCESS:"+payment.id);
-            res.send(payment);
+            res.send(status);
         }
 
     });

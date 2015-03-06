@@ -75,31 +75,39 @@
             </div><!-- navbar-collapse -->
 
         </nav>
-        <div id="contact">
+        <div id="donate">
             <div class="container contact-full animated fadeInLeft">
-                <div class="contact-form">
+                <div class="donate-form">
                     <h1 class="animated fadeInUp wow ">
                         We want you to come for the ride in the process, subscribe to follow us
                     </h1>
-                    <div class="contact-box contact-box-default shadow">
+                    <div class="contact-box contact-box-default shadow col-md-6">
                         <div>
-                            <form name="signupForm" role="form" ng-controller="UserSignUpController as signup" ng-submit="signupForm.$valid && signup.addDonation(type)" novalidate class="css-form">
+                            <form name="signupForm" role="form" ng-controller="UserSignUpController as signup" ng-submit="signup.addDonation(type)" novalidate class="css-form">
                                 <fieldset class="form-group">
+                                    <label>First Name</label>
                                     <input name="input" ng-model="signup.transaction.first_name" class="form-control" placeholder="First Name" title="First Name" required>
                                 </fieldset>
                                 <fieldset class="form-group">
+                                    <label>Last Name</label>
                                     <input name="input" ng-model="signup.transaction.last_name" class="form-control" placeholder="Last Name" title="Last Name" required>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.amount" class="form-control" placeholder="Enter Amount" title="Amount" required>
+                                    <label>Amount</label>
+                                    <input name="amount" type="number" ng-model="signup.transaction.amount" class="form-control" placeholder="Enter Amount" title="Amount" required>
+                                    <div ng-messages="signup.transaction.amount.$error" ng-show="signupForm.amount.$submitted">
+                                        <div ng-message-exp="'required'">You did not enter an amount</div>
+                                    </div>
                                 </fieldset>
 
                                 <fieldset class="form-group-card">
                                     <label>Credit Card Number</label>
                                     <div class="form-control-credit">
-                                        <div class='{{type}} card col-md-1 col-sm-1 col-xs-6'></div>
-                                        <input type="text" class="form-control-card-input col-md-11 col-sm-11 col-xs-6" ng-model="signup.transaction.cardnumber" placeholder="Credit Card Number" payments-validate="card" payments-format="card" payments-type-model="type" />
+                                        <div class='{{type}} card col-md-2 col-sm-1 col-xs-6'></div>
+                                        <input type="text" class="form-control-card-input col-md-10 col-sm-11 col-xs-6" ng-model="signup.transaction.cardnumber" placeholder="Credit Card Number" payments-validate="card" payments-format="card" payments-type-model="type" required/>
                                     </div>
+
+                                    <p ng-show="status.credit_card_state">{{error.credit_card_message}}</p>
 
                                 </fieldset>
                                 <fieldset class="form-group">
@@ -111,12 +119,12 @@
                                 <!--</fieldset>-->
                                 <fieldset class="form-group">
                                     <label>CVV</label>
-                                    <input name="input" ng-model="signup.transaction.cvv2" class="form-control" placeholder="Enter CVV" title="CVV" required>
+                                    <input name="input" type="number" ng-model="signup.transaction.cvv2" class="form-control" placeholder="Enter CVV" title="CVV" required>
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <input type="submit" class="btn btn-primary pull-right" value="Make Donation" />
                                 </fieldset>
-                                <p ng-show="signup.attempt">THE RESULT IS{{result}}</p>
+                                <p ng-show="signup.attempt">THE RESULT is a {{result}}</p>
 
                             </form>
                         </div>

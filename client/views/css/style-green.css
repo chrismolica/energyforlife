@@ -7829,7 +7829,17 @@ input[type="date"]:focus {
   display: table-cell;
   padding: 20px;
 }
+#donate {
+    background-image: url("../img/haiti_sample_photos/haiti-3-low.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
+    min-height: 600px;
+    padding: 5% 0;
+}
 
 .visa {
     background-position-x: -71px!important;
@@ -7855,10 +7865,10 @@ input[type="date"]:focus {
     font-size: 14px;
 }
 .form-control-card-input{
-    padding: 0;
+    padding: 6px 12px;
     margin: 0;
     height: 100%;
-    width: 250px
+    width: 150px
     /*line-height: 1.42857143;*/
     color: #555;
     background-color: #fff;
@@ -7873,7 +7883,7 @@ input[type="date"]:focus {
 .card{
     padding: 0;
     height: 36px;
-    width: 54px;
+    width: 57px;
     position: relative;
     background-image: url("../img/credit_cards.png");
     background-position: 0px -5px;
@@ -7884,19 +7894,14 @@ input[type="date"]:focus {
     padding: 10px 0px;
     margin: 10px 0px
 }
-/*@media (max-width: 500px) {*/
-    /*.card{*/
-        /*width: 30%;*/
-    /*}*/
-    /*.form-control-card-input{*/
-        /*width: 70%;*/
-    /*}*/
-/*}*/
-/*@media (min-width: 768px) and (max-width: 991px) {*/
-    /*.card{*/
-        /*width: 8.5%;*/
-    /*}*/
-    /*.form-control-card-input{*/
-        /*width: 91.5%;*/
-    /*}*/
-/*}*/
+
+.donate-form{
+    padding: 5% 0;
+    height: 100%;
+}
+.donate-form h1{
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 3em;
+    text-align: center;
+}
