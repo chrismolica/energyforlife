@@ -75,15 +75,17 @@
             </div><!-- navbar-collapse -->
 
         </nav>
-        <div id="donate">
+        <div id="donate" ng-controller="DonationController as donation">
             <div class="container contact-full animated fadeInLeft">
                 <div class="donate-form">
-                    <h1 class="animated fadeInUp wow ">
+                    <h1 class="animated fadeInUp wow" ng-hide = "attempt">
                         We want you to come for the ride in the process, subscribe to follow us
                     </h1>
+                    <h1 class="animated fadeInUp wow" ng-show = "success">
+                        We want you to thank you for your donation.
+                    </h1>
                     <div class="contact-box contact-box-default shadow col-md-6">
-                        <div>
-                            <form name="signupForm" role="form" ng-controller="UserSignUpController as signup" ng-submit="signup.addDonation(type)" novalidate class="css-form">
+                            <form name="signupForm" role="form" ng-controller="UserSignUpController as signup" ng-hide="attempt" ng-submit="donation.addDonation(type, signup.transaction)" novalidate class="css-form">
                                 <fieldset class="form-group">
                                     <label>First Name</label>
                                     <input name="input" ng-model="signup.transaction.first_name" class="form-control" placeholder="First Name" title="First Name" required>
@@ -127,6 +129,18 @@
                                 <p ng-show="signup.attempt">THE RESULT is a {{result}}</p>
 
                             </form>
+                        <div class="success-box animated fadeInUp wow" ng-show = "success">
+                            <label>Name</label>
+                            <p>{{userdata.first_name}} {{userdata.last_name}}</p>
+                            <label>Order ID</label>
+                            <p>{{userdata.transactionid}}</p>
+                            <label>Transaction Status</label>
+                            <p>{{userdata.state| uppercase}}</p>
+                            <label>Transaction Date and Time</label>
+                            <p>{{userdata.created_date| date:'medium'}}</p>
+                            <label>Transaction Amount</label>
+                            <p>{{userdata.amount| currency}}</p>
+                            <button type="button" onClick="parent.location='/index'" class="btn btn-ar btn-sm btn-default">Return</button>
                         </div>
                     </div>
                 </div>

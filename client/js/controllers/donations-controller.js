@@ -1,22 +1,25 @@
 /**
  * Created by chrismolica on 2/25/15.
  */
-//angular.module('profile').
-//    controller('DonationController',['$scope', '$resource', '$timeout', function($scope, $resource, $timeout) {
-//
-//    }]);
 var test;
+angular.module('profile').
+    controller('UserSignUpController',['$scope', '$resource', '$timeout', function($scope, $resource, $timeout) {
+   this.transaction = {};
+    }]);
+
 
 angular.module('profile').
-    controller('UserSignUpController',['$scope', '$resource', '$timeout', '$http', function($scope, $resource, $timeout, $http) {
+    controller('DonationController',['$scope', '$resource', '$timeout', '$http', function($scope, $resource, $timeout, $http) {
         var Donation = $resource('/api/donation');
 
-        this.transaction = {};
         $scope.status  = {};
         $scope.error = {}
 
+        this.userdata = {};
 
-        this.attempt = false;
+        $scope.attempt = false;
+        $scope.success = false;
+
         $scope.result = {};
         $http.put('/create').success(function(data){
             console.log('SUCCESS');
@@ -25,42 +28,45 @@ angular.module('profile').
             console.log('SUCCESS');
         });
 
-        this.addDonation = function(type){
+        this.addDonation = function(type, transaction){
+            $scope.attempt = true;
             this.status  = {};
             this.error = {}
-            console.log( + ':'+this.transaction.cardnumber);
+            console.log( + ':'+transaction.cardnumber);
             //console.log(this.transaction.date.substring(5,8));
-            console.log(this.transaction.date);
-            console.log(this.transaction.date.substring(0,2));
-            console.log('INPUT:'+this.transaction);
-            this.attempt = true;
+            console.log(transaction.date);
+            console.log(transaction.date.substring(0,2));
+            console.log('INPUT:'+transaction);
             var donation = new Donation();
             var result = {};
             var failures = {};
             donation.method = 'credit_card';
-            donation.first_name = this.transaction.first_name;
-            donation.last_name = this.transaction.last_name;
-            donation.amount = this.transaction.amount;
+            donation.first_name = transaction.first_name;
+            donation.last_name = transaction.last_name;
+            donation.amount = transaction.amount;
             donation.cardtype = type.toLowerCase();
-            donation.cardnumber = this.transaction.cardnumber;
-            donation.expire_month = this.transaction.date.substring(0,2);
-            donation.expire_year = this.transaction.date.substring(3,8);
-            donation.cvv2 = this.transaction.cvv2;
+            donation.cardnumber = transaction.cardnumber;
+            donation.expire_month = transaction.date.substring(0,2);
+            donation.expire_year = transaction.date.substring(3,8);
+            donation.cvv2 = transaction.cvv2;
             console.log('DONATION:'+JSON.stringify(donation));
             test = donation;
             $timeout(donation.$save(function(result){
                 console.log(result);
                 console.log("OUTPUT RESULT DONATION CONTROLLER:"+result);
             }), 100000);
+            var state = false;
+
             $http.post('/api/donation', donation)
                 .success(function(data){
-                    //console.log("DATA STATE:");
-                    //console.log(data.state);
-                    //console.log("RESOURCE:");
-
                     if(data.state === 'success'){
+                        updateState(true);
                         $scope.result = 'success';
+                        console.log(data);
+                        $scope.userdata = parseUser(donation, data);
+                        console.log(data);
                     }else{
+                        updateState(false);
                         $scope.result = 'failure';
                         var fail = data.value.response.details;
                         for(var i=0;i<fail.length;i++){
@@ -74,8 +80,28 @@ angular.module('profile').
                     $scope.result = data;
                 });
 
-
         };
+        function updateState(state){
+            $scope.attempt = true;
+            if(state){
+                console.log('success:'+state);
+                $scope.success = true;
+            }else{
+                console.log('success:'+state);
+                $scope.success = false;
+            }
+        }
+        function parseUser(donation, result){
+            var userdata = {}
+            userdata.first_name = donation.first_name;
+            userdata.last_name = donation.last_name;
+            userdata.amount = donation.amount;
+            userdata.state = result.value.state;
+            userdata.transactionid = result.value.id;
+            userdata.created_date = result.value.update_time;
+            return userdata;
+        }
+
         function get_credit_card_state(state, message){
             console.log("MESSAGE");
             console.log(message);
@@ -95,6 +121,6 @@ angular.module('profile').
         }
 
     }]);
-
+$('#donate').css({'min-height':$(window).height()});
 
 
