@@ -168,59 +168,155 @@
                 </section>
             </div>
         </div>
-        <div id="about_us">
-            <div class="container">
-                <div ng-controller="MeetupsController as meetups">
-                    <p> Hello!</p>
-                    <h1> There are {{meetups.count}} meetups</h1>
-                    <ul>
-                        <li ng-repeat="meetup in meetuplist">{{meetup.name}}</li>
-                    </ul>
-                    <form ng-submit="meetups.createMeetup()">
-                        <input type="text" placeholder="Meetup name" ng-model="name">
-                        <button type="submit">Add</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div id="email_list">
-            <div class="container">
-                <div ng-controller="EmailListController as emailList">
-                    <ul>
-                        <li ng-repeat="email in emailList">{{email.email}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--<div id="contact">-->
-            <!--<div class="container contact-full">-->
-                <!--<div class="contact-form">-->
-                    <!--<h1 class="animated fadeInUp wow ">-->
-                        <!--We want you to come for the ride in the process, subscribe to follow us-->
-                    <!--</h1>-->
-                    <!--<div class="contact-box contact-box-default shadow">-->
-                        <!--<div ng-controller="EmailSubscription as user">-->
-                            <!--<form name="signupForm" role="form" ng-controller="SignUpController as signup" ng-hide="user.profile.submited" ng-submit="signupForm.$valid && signup.addEmail(user)" novalidate class="css-form">-->
-                                <!--<fieldset class="form-group">-->
-                                    <!--<input name="input" ng-model="signup.input.first_name" class="form-control" placeholder="First Name" title="First Name" required>-->
-                                <!--</fieldset>-->
-                                <!--<fieldset class="form-group">-->
-                                    <!--<input name="input" ng-model="signup.input.last_name" class="form-control" placeholder="Last Name" title="Last Name" required>-->
-                                <!--</fieldset>-->
-                                <!--<fieldset class="form-group">-->
-                                    <!--<input ng-model="signup.input.email" type="email"  class="form-control" placeholder="Email" title="Email" required/>-->
-                                <!--</fieldset>-->
-                                <!--<fieldset class="form-group">-->
-                                    <!--<input type="submit" class="btn btn-primary pull-right" value="Sign Up" />-->
-                                <!--</fieldset>-->
-                            <!--</form>-->
-                            <!--<div class="contact-thankyou" ng-show="user.profile.submited">-->
-                                <!--<p>Thank you {{user.profile.first_name}} {{user.profile.last_name}} for your interest, we are excited to update you soon</p>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
+        <!--<div id="about_us">-->
+            <!--<div class="container">-->
+                <!--<div ng-controller="MeetupsController as meetups">-->
+                    <!--<p> Hello!</p>-->
+                    <!--<h1> There are {{meetups.count}} meetups</h1>-->
+                    <!--<ul>-->
+                        <!--<li ng-repeat="meetup in meetuplist">{{meetup.name}}</li>-->
+                    <!--</ul>-->
+                    <!--<form ng-submit="meetups.createMeetup()">-->
+                        <!--<input type="text" placeholder="Meetup name" ng-model="name">-->
+                        <!--<button type="submit">Add</button>-->
+                    <!--</form>-->
                 <!--</div>-->
             <!--</div>-->
+        <!--</div>-->
+        <!--<div id="email_list">-->
+            <!--<div class="container">-->
+                <!--<div ng-controller="EmailListController as emailList">-->
+                    <!--<ul>-->
+                        <!--<li ng-repeat="email in emailList">{{email.email}}</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="container">
+            <div class="col-md-12">
+                <h2 class="right-line">EVENT TIMELINE</h2>
+            </div>
+            <section>
+                <h3 class="timeline-title"><span>2013</span></h3>
+                <div class="row timeline">
+                    <div class="col-sm-6 timeline-left">
+                        <div class="timeline-event timeline-event-left animated bounceInLeft animation-delay-3">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><strong>Heading Event</strong> - 9 July</div>
+                                <img src="img/demo/w1.jpg" class="img-responsive" alt="Image">
+                                <div class="panel-body">
+                                    <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Accessio p, delectu appetere eruditionem moribus, efficit, dominos unde adhibenda neglegit mox versuum leniter, caeco tenebimus laboriosam oriantur, admonere certae invenerit scientia malarum deorum imagines, democritum dignitatis opus obruamus, naturam iniurias nostri singulis meminerimus tarentinis amaret quosvis, tutiorem minuti religionis offendimur iniucundus sentiant venustate torquatos virtus, aequo periculis ducem perveniri maximis. Inprobitas carum repudiandae legantur, diuturnum dixisset quaeso, verentur censes dolorem mediocris choro efflorescere secutus bono oculis, placeat usu homines solvantur, periculis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-event timeline-event-left animated bounceInLeft animation-delay-9">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Heading Event - 27 September</div>
+                                <img src="img/demo/w2.jpg" class="img-responsive" alt="Image">
+                                <div class="panel-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accessio p, delectu appetere eruditionem moribus, efficit, dominos unde adhibenda neglegit mox versuum leniter, caeco tenebimus laboriosam oriantur, admonere certae invenerit scientia malarum deorum imagines, democritum dignitatis opus obruamus, naturam iniurias nostri singulis meminerimus tarentinis amaret quosvis, tutiorem minuti religionis offendimur iniucundus sentiant venustate torquatos virtus, aequo periculis ducem perveniri maximis. Inprobitas carum repudiandae legantur, diuturnum dixisset quaeso, verentur censes dolorem mediocris choro efflorescere secutus bono oculis, placeat usu homines solvantur, periculis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-event timeline-event-left animated bounceInLeft animation-delay-13">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Event with table - 27 September</div>
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 timeline-right">
+                        <div class="timeline-event timeline-event-right animated bounceInRight animation-delay-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Event with video - 15 January</div>
+                                <div class="video">
+                                    <iframe src="http://player.vimeo.com/video/50061391?title=0&amp;byline=0&amp;portrait=0"></iframe>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accessio p, delectu appetere eruditionem moribus, efficit, dominos unde adhibenda neglegit mox versuum leniter, caeco tenebimus laboriosam oriantur, admonere certae invenerit scientia malarum deorum imagines, democritum dignitatis opus obruamus, naturam iniurias nostri singulis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-event timeline-event-right animated bounceInRight animation-delay-7">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Heading Event - 14 April</div>
+                                <div class="panel-body">
+                                    <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Accessio p, delectu appetere eruditionem moribus, efficit, dominos unde adhibenda neglegit mox versuum leniter, caeco tenebimus laboriosam oriantur, admonere certae invenerit scientia malarum deorum imagines, democritum dignitatis opus obruamus, naturam iniurias nostri singulis meminerimus tarentinis amaret.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidam non ignorare gratissimo sua urbes numeris cohaerescent, numquam mi dedocere dolendum delectat infinito finibus. Molita scriptum iniucundus sublata intellegi cohaerescent audita primum gravioribus, solum emolumento iucunditatem futuros aristotelem vis insatiabiles, inesse gaudere, tu restincto platonis insidiarum iusteque accurate audeam cibo partes, intereant, noster maerores laborat pararetur durissimis, multoque centurionum cogitarent dissentio fecerit praetermissum magnosque honesta.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-event timeline-event-right animated bounceInRight animation-delay-11">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Heading Event - 15 January</div>
+                                <img src="img/demo/w11.jpg" class="img-responsive" alt="Image">
+                                <div class="panel-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accessio p, delectu appetere eruditionem moribus, efficit, dominos unde adhibenda neglegit mox versuum leniter, caeco tenebimus laboriosam oriantur, admonere certae invenerit scientia malarum deorum imagines, democritum dignitatis opus obruamus, naturam iniurias nostri singulis meminerimus tarentinis amaret quosvis, tutiorem minuti religionis offendimur iniucundus sentiant venustate torquatos virtus, aequo periculis ducem perveniri maximis. Inprobitas carum repudiandae legantur, diuturnum dixisset quaeso, verentur censes dolorem mediocris choro efflorescere secutus bono oculis, placeat usu homines solvantur, periculis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!--<div id="contact">-->
+        <!--<div class="container contact-full">-->
+        <!--<div class="contact-form">-->
+        <!--<h1 class="animated fadeInUp wow ">-->
+        <!--We want you to come for the ride in the process, subscribe to follow us-->
+        <!--</h1>-->
+        <!--<div class="contact-box contact-box-default shadow">-->
+        <!--<div ng-controller="EmailSubscription as user">-->
+        <!--<form name="signupForm" role="form" ng-controller="SignUpController as signup" ng-hide="user.profile.submited" ng-submit="signupForm.$valid && signup.addEmail(user)" novalidate class="css-form">-->
+        <!--<fieldset class="form-group">-->
+        <!--<input name="input" ng-model="signup.input.first_name" class="form-control" placeholder="First Name" title="First Name" required>-->
+        <!--</fieldset>-->
+        <!--<fieldset class="form-group">-->
+        <!--<input name="input" ng-model="signup.input.last_name" class="form-control" placeholder="Last Name" title="Last Name" required>-->
+        <!--</fieldset>-->
+        <!--<fieldset class="form-group">-->
+        <!--<input ng-model="signup.input.email" type="email"  class="form-control" placeholder="Email" title="Email" required/>-->
+        <!--</fieldset>-->
+        <!--<fieldset class="form-group">-->
+        <!--<input type="submit" class="btn btn-primary pull-right" value="Sign Up" />-->
+        <!--</fieldset>-->
+        <!--</form>-->
+        <!--<div class="contact-thankyou" ng-show="user.profile.submited">-->
+        <!--<p>Thank you {{user.profile.first_name}} {{user.profile.last_name}} for your interest, we are excited to update you soon</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
         <div id="contact">
             <div class="container contact-full">
                 <div class="contact-form">
@@ -228,45 +324,29 @@
                         We want you to come for the ride in the process, subscribe to follow us
                     </h1>
                     <div class="contact-box contact-box-default shadow">
-                        <div>
-                            <form name="signupForm" role="form" ng-controller="UserSignUpController as signup" ng-submit="signupForm.$valid && signup.addDonation()" novalidate class="css-form">
+                        <div ng-controller="EmailSubscription as user">
+                            <form name="signupForm" role="form" ng-controller="SignUpController as signup" ng-hide="user.profile.submited" ng-submit="signupForm.$valid && signup.addSignUp(user)" novalidate class="css-form">
                                 <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.first_name" class="form-control" placeholder="First Name" title="First Name" required>
+                                    <input name="input" ng-model="signup.input.first_name" class="form-control" placeholder="First Name" title="First Name" required>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.last_name" class="form-control" placeholder="Last Name" title="Last Name" required>
+                                    <input name="input" ng-model="signup.input.last_name" class="form-control" placeholder="Last Name" title="Last Name" required>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.amount" class="form-control" placeholder="Enter Amount" title="Amount" required>
+                                    <input ng-model="signup.input.email" type="email"  class="form-control" placeholder="Email" title="Email" required/>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.cardtype" class="form-control" placeholder="Type" title="CreditCard Type" required>
+                                    <input type="submit" class="btn btn-primary pull-right" value="Sign Up" />
                                 </fieldset>
-                                <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.cardnumber" class="form-control" placeholder="Enter Credit Card Number" title="Number" required>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.expire_month" class="form-control" placeholder="Enter Month" title="Number" required>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.expire_year" class="form-control" placeholder="Enter Year" title="Number" required>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <input name="input" ng-model="signup.transaction.cvv2" class="form-control" placeholder="Enter CVV" title="CVV" required>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <input type="submit" class="btn btn-primary pull-right" value="Make Donation" />
-                                </fieldset>
-                                <p ng-show="signup.hasError">{{signup.error}}</p>
                             </form>
+                            <div class="contact-thankyou" ng-show="user.profile.submited">
+                                <p>Thank you {{user.profile.first_name}} {{user.profile.last_name}} for your interest, we are excited to update you soon</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     </div>
     <script type="text/javascript" src="../js/libraries/jquery.min.js"></script>
     <script type="text/javascript" src="../js/libraries/jquery.cookie.js"></script>
